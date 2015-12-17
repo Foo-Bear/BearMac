@@ -76,6 +76,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func showPreferences() {
         preferencesController.showWindow(nil)
+        preferencesController.window!.makeKeyAndOrderFront(nil)
+        NSApp.activateIgnoringOtherApps(true)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

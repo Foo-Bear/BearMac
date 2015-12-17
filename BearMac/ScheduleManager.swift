@@ -26,6 +26,17 @@ class ScheduleManager: NSObject {
         }
     }
     
+    var lunches: [Int] {
+        get {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if let lunches = defaults.arrayForKey(kLunchesKey) as? [Int]{
+                return lunches
+            } else {
+                return [1,1,1,1,1]
+            }
+        }
+    }
+    
     var fallbackSchedule: [[Block]]
     var downloadedSchedule: [Block]?
     
@@ -58,7 +69,13 @@ class ScheduleManager: NSObject {
             let blockEndMinutes = block.endTime.hour * 60 + block.endTime.minute
             if blockStartMinutes <= nowMinutes &&
                 blockEndMinutes > nowMinutes {
-                    return block
+                    let lunchID = Int(String(block.keyName[block.keyName.endIndex.predecessor()]))!
+                    let calendar = NSCalendar.currentCalendar()
+                    let weekday = calendar.component(.Weekday, fromDate: NSDate())
+                    let lunch = lunches[weekday - 2]
+                    if lunchID == 0 || lunchID == lunch {
+                        return block
+                    }
             }
         }
         return nil
@@ -71,7 +88,13 @@ class ScheduleManager: NSObject {
         for block in todaySchedule {
             let blockStartMinutes = block.startTime.hour * 60 + block.startTime.minute
             if blockStartMinutes > nowMinutes {
+                let lunchID = Int(String(block.keyName[block.keyName.endIndex.predecessor()]))!
+                let calendar = NSCalendar.currentCalendar()
+                let weekday = calendar.component(.Weekday, fromDate: NSDate())
+                let lunch = lunches[weekday - 2]
+                if lunchID == 0 || lunchID == lunch {
                     return block
+                }
             }
         }
         return nil

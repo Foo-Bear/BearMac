@@ -7,6 +7,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="BearMac" customModuleProvider="target">
             <connections>
+                <outlet property="friControl" destination="btn-sx-FEX" id="ZpL-ow-UeN"/>
+                <outlet property="monControl" destination="zpA-sN-vZ2" id="zVV-sY-QXp"/>
+                <outlet property="thuControl" destination="Y2Z-h2-rkS" id="0DX-EY-sjG"/>
+                <outlet property="tueControl" destination="Ht5-l7-4wg" id="24v-wL-ROX"/>
+                <outlet property="wedControl" destination="PzQ-b0-alQ" id="vSD-Qt-Fub"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -23,6 +28,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="285"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kCc-IV-2c2">
+                        <rect key="frame" x="387" y="13" width="79" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="67" id="u7N-xn-pM8"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="Ok" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NkL-Yf-80T">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="okPresssed:" target="-2" id="7cJ-q9-pyc"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0T0-aI-QDB">
+                        <rect key="frame" x="45" y="191" width="59" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tuesday" id="fkj-Fb-p5S">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uBX-Tx-hW3">
                         <rect key="frame" x="18" y="256" width="112" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Lunch Schedule" id="vtw-u4-DCW">
@@ -48,6 +77,9 @@
                                 <segment label="2nd" width="32" tag="1"/>
                             </segments>
                         </segmentedCell>
+                        <connections>
+                            <action selector="lunchChanged:" target="-2" id="Uxh-8t-OPZ"/>
+                        </connections>
                     </segmentedControl>
                     <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PzQ-b0-alQ">
                         <rect key="frame" x="39" y="116" width="71" height="24"/>
@@ -58,6 +90,9 @@
                                 <segment label="2nd" width="32" tag="1"/>
                             </segments>
                         </segmentedCell>
+                        <connections>
+                            <action selector="lunchChanged:" target="-2" id="CXD-hY-mLu"/>
+                        </connections>
                     </segmentedControl>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JK2-Yv-VBw">
                         <rect key="frame" x="35" y="142" width="79" height="17"/>
@@ -76,6 +111,9 @@
                                 <segment label="2nd" width="32" tag="1"/>
                             </segments>
                         </segmentedCell>
+                        <connections>
+                            <action selector="lunchChanged:" target="-2" id="UbM-AS-6HO"/>
+                        </connections>
                     </segmentedControl>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gWP-Vm-yLB">
                         <rect key="frame" x="42" y="93" width="65" height="17"/>
@@ -94,16 +132,9 @@
                                 <segment label="2nd" width="32" tag="1"/>
                             </segments>
                         </segmentedCell>
-                    </segmentedControl>
-                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="btn-sx-FEX">
-                        <rect key="frame" x="39" y="18" width="71" height="24"/>
-                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="OSz-Ya-aTU">
-                            <font key="font" metaFont="system"/>
-                            <segments>
-                                <segment label="1st" width="32" selected="YES"/>
-                                <segment label="2nd" width="32" tag="1"/>
-                            </segments>
-                        </segmentedCell>
+                        <connections>
+                            <action selector="lunchChanged:" target="-2" id="La3-Gi-aqM"/>
+                        </connections>
                     </segmentedControl>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n5k-t1-Fsn">
                         <rect key="frame" x="52" y="44" width="46" height="17"/>
@@ -113,16 +144,22 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0T0-aI-QDB">
-                        <rect key="frame" x="45" y="191" width="59" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tuesday" id="fkj-Fb-p5S">
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="btn-sx-FEX">
+                        <rect key="frame" x="39" y="18" width="71" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="OSz-Ya-aTU">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
+                            <segments>
+                                <segment label="1st" width="32" selected="YES"/>
+                                <segment label="2nd" width="32" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                        <connections>
+                            <action selector="lunchChanged:" target="-2" id="1n3-ZK-Q3S"/>
+                        </connections>
+                    </segmentedControl>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="kCc-IV-2c2" secondAttribute="bottom" constant="20" id="1vq-Nh-Wpc"/>
                     <constraint firstItem="btn-sx-FEX" firstAttribute="top" secondItem="n5k-t1-Fsn" secondAttribute="bottom" constant="3" id="3CR-4z-tPj"/>
                     <constraint firstItem="btn-sx-FEX" firstAttribute="centerX" secondItem="n5k-t1-Fsn" secondAttribute="centerX" id="5gQ-Bl-we7"/>
                     <constraint firstItem="uBX-Tx-hW3" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="CO7-nk-bdV"/>
@@ -136,6 +173,7 @@
                     <constraint firstItem="Y2Z-h2-rkS" firstAttribute="top" secondItem="gWP-Vm-yLB" secondAttribute="bottom" constant="3" id="U3X-B1-RTU"/>
                     <constraint firstItem="Ht5-l7-4wg" firstAttribute="top" secondItem="0T0-aI-QDB" secondAttribute="bottom" constant="3" id="VTf-Pn-RJZ"/>
                     <constraint firstItem="uBX-Tx-hW3" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="12" id="XZx-DV-dM4"/>
+                    <constraint firstAttribute="trailing" secondItem="kCc-IV-2c2" secondAttribute="trailing" constant="20" id="aBk-VA-UuW"/>
                     <constraint firstItem="zpA-sN-vZ2" firstAttribute="centerX" secondItem="pX9-rs-B1Z" secondAttribute="centerX" id="aDZ-FQ-xCu"/>
                     <constraint firstItem="pX9-rs-B1Z" firstAttribute="top" secondItem="uBX-Tx-hW3" secondAttribute="bottom" constant="-1" id="ec9-Zf-lBT"/>
                     <constraint firstItem="Y2Z-h2-rkS" firstAttribute="centerX" secondItem="gWP-Vm-yLB" secondAttribute="centerX" id="foD-sO-oar"/>
