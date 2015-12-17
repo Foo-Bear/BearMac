@@ -33,22 +33,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Quit \(appName)", action: Selector("terminate:"), keyEquivalent: ""))
         statusItem.menu = menu
         updateSchedule()
-        let calendar = NSCalendar.currentCalendar()
-        let secondsElapsed = calendar.component(.Second, fromDate: NSDate()) // All of this is to get the timer synchronized. Please find a better way to do this!z
-        let secondsLeft = 60 - secondsElapsed
-        let firstTimerFire = NSDate(timeIntervalSinceNow: NSTimeInterval(secondsLeft))
-        timer = NSTimer(fireDate: firstTimerFire, interval: 60, target: self, selector: Selector("incrementTime"), userInfo: nil, repeats: true)
+        //This works better than before, but might be a resource hog
+        timer = NSTimer(timeInterval: 1, target: self, selector: Selector("updateSchedule"), userInfo: nil, repeats: true)
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
         
-    }
-    
-    func incrementTime() {
-        timeLeft -= 1
-        if timeLeft <= 0 {
-            updateSchedule()
-        } else {
-            updateStatusBar()
-        }
     }
     
     func updateSchedule() {
@@ -66,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             nowItem.title = "Now: \(currentClass.name)"
             nowItem.hidden = false
             menu.itemChanged(nowItem)
-            timeLeft = scheduleManager.timeUntilNextClass()
+            timeLeft = scheduleManager.timeLeftInCurrentClass()
             updateStatusBar()
         }
     }
@@ -76,6 +64,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let timeLeftMinutes = timeLeft % 60
         if timeLeftMinutes == 0 {
             statusItem.title = "\(timeLeftHours):00"
+        } else if timeLeftMinutes < 10 {
+            statusItem.title = "\(timeLeftHours):0\(timeLeftMinutes)"
         } else {
             statusItem.title = "\(timeLeftHours):\(timeLeftMinutes)"
         }

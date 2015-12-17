@@ -56,7 +56,7 @@ class ScheduleManager: NSObject {
         for block in todaySchedule {
             let blockStartMinutes = block.startTime.hour * 60 + block.startTime.minute
             let blockEndMinutes = block.endTime.hour * 60 + block.endTime.minute
-            if blockStartMinutes < nowMinutes &&
+            if blockStartMinutes <= nowMinutes &&
                 blockEndMinutes > nowMinutes {
                     return block
             }
