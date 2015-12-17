@@ -17,7 +17,11 @@ class ScheduleManager: NSObject {
             } else {
                 let calendar = NSCalendar.currentCalendar()
                 let weekday = calendar.component(.Weekday, fromDate: NSDate())
-                return fallbackSchedule[weekday - 2]
+                if weekday == 1 || weekday == 7 {
+                    return [Block]()
+                } else {
+                    return fallbackSchedule[weekday - 2]
+                }
             }
         }
     }
@@ -48,11 +52,12 @@ class ScheduleManager: NSObject {
     func currentClass() -> Block? {
         let calendar = NSCalendar.currentCalendar()
         let now = calendar.components([.Hour, .Minute], fromDate: NSDate())
+        let nowMinutes = now.hour * 60 + now.minute
         for block in todaySchedule {
-            if block.startTime.hour < now.hour &&
-                block.startTime.minute < now.minute &&
-                block.endTime.hour > now.hour &&
-                block.endTime.minute > now.minute {
+            let blockStartMinutes = block.startTime.hour * 60 + block.startTime.minute
+            let blockEndMinutes = block.endTime.hour * 60 + block.endTime.minute
+            if blockStartMinutes < nowMinutes &&
+                blockEndMinutes > nowMinutes {
                     return block
             }
         }
@@ -62,9 +67,10 @@ class ScheduleManager: NSObject {
     func nextClass() -> Block? {
         let calendar = NSCalendar.currentCalendar()
         let now = calendar.components([.Hour, .Minute], fromDate: NSDate())
+        let nowMinutes = now.hour * 60 + now.minute
         for block in todaySchedule {
-            if block.startTime.hour > now.hour &&
-                block.startTime.minute > now.minute {
+            let blockStartMinutes = block.startTime.hour * 60 + block.startTime.minute
+            if blockStartMinutes > nowMinutes {
                     return block
             }
         }
@@ -88,8 +94,8 @@ class ScheduleManager: NSObject {
         if let nextClass = nextClass() {
             let calendar = NSCalendar.currentCalendar()
             let now = calendar.components([.Hour, .Minute], fromDate: NSDate())
-            let hoursLeft = now.hour - nextClass.startTime.hour
-            let minutesLeft = now.minute - nextClass.startTime.minute
+            let hoursLeft = nextClass.startTime.hour - now.hour
+            let minutesLeft = nextClass.startTime.minute - now.minute
             let timeLeft = hoursLeft * 60 + minutesLeft
             return timeLeft
         } else {
