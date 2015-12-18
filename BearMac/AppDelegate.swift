@@ -13,11 +13,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
+    let scheduleManager = ScheduleManager()
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
         statusItem.title = "34:56"
+        print(scheduleManager.schedule)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

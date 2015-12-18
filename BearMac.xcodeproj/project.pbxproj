@@ -10,6 +10,9 @@
 		AB06DC741C23844C0050394B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06DC731C23844C0050394B /* AppDelegate.swift */; };
 		AB06DC761C23844C0050394B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB06DC751C23844C0050394B /* Assets.xcassets */; };
 		AB06DC791C23844C0050394B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB06DC771C23844C0050394B /* MainMenu.xib */; };
+		AB06DC851C23BBD30050394B /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06DC841C23BBD30050394B /* ScheduleManager.swift */; };
+		AB06DC871C23BC3D0050394B /* fallbackDatabase.json in Resources */ = {isa = PBXBuildFile; fileRef = AB06DC861C23BC3D0050394B /* fallbackDatabase.json */; };
+		AB06DC891C23BFDC0050394B /* DataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06DC881C23BFDC0050394B /* DataObjects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +21,9 @@
 		AB06DC751C23844C0050394B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB06DC781C23844C0050394B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		AB06DC7A1C23844C0050394B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB06DC841C23BBD30050394B /* ScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
+		AB06DC861C23BC3D0050394B /* fallbackDatabase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fallbackDatabase.json; sourceTree = "<group>"; };
+		AB06DC881C23BFDC0050394B /* DataObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObjects.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				AB06DC731C23844C0050394B /* AppDelegate.swift */,
+				AB06DC881C23BFDC0050394B /* DataObjects.swift */,
+				AB06DC841C23BBD30050394B /* ScheduleManager.swift */,
 				AB06DC751C23844C0050394B /* Assets.xcassets */,
 				AB06DC771C23844C0050394B /* MainMenu.xib */,
 				AB06DC7A1C23844C0050394B /* Info.plist */,
+				AB06DC861C23BC3D0050394B /* fallbackDatabase.json */,
 			);
 			path = BearMac;
 			sourceTree = "<group>";
@@ -117,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB06DC761C23844C0050394B /* Assets.xcassets in Resources */,
+				AB06DC871C23BC3D0050394B /* fallbackDatabase.json in Resources */,
 				AB06DC791C23844C0050394B /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB06DC851C23BBD30050394B /* ScheduleManager.swift in Sources */,
+				AB06DC891C23BFDC0050394B /* DataObjects.swift in Sources */,
 				AB06DC741C23844C0050394B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
