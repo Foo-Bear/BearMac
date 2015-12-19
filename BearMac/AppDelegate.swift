@@ -18,7 +18,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         statusItem.title = "34:56"
-        print(scheduleManager.schedule)
+        let menu = NSMenu()
+        let appName = NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
+        menu.addItem(NSMenuItem(title: "Quit \(appName)", action: Selector("terminate:"), keyEquivalent: ""))
+        statusItem.menu = menu
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

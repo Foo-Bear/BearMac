@@ -10,13 +10,13 @@ import Cocoa
 
 class ScheduleManager: NSObject {
     
-    var schedule: [Block] {
+    var todaySchedule: [Block] {
         get {
             if downloadedSchedule != nil {
                 return downloadedSchedule!
             } else {
-                let calender = NSCalendar.currentCalendar()
-                let weekday = calender.component(.Weekday, fromDate: NSDate())
+                let calendar = NSCalendar.currentCalendar()
+                let weekday = calendar.component(.Weekday, fromDate: NSDate())
                 return fallbackSchedule[weekday - 2]
             }
         }
@@ -45,6 +45,58 @@ class ScheduleManager: NSObject {
         
     }
     
+    func currentClass() -> Block? {
+        let calendar = NSCalendar.currentCalendar()
+        let now = calendar.components([.Hour, .Minute], fromDate: NSDate())
+        for block in todaySchedule {
+            if block.startTime.hour < now.hour &&
+                block.startTime.minute < now.minute &&
+                block.endTime.hour > now.hour &&
+                block.endTime.minute > now.minute {
+                    return block
+            }
+        }
+        return nil
+    }
+    
+    func nextClass() -> Block? {
+        let calendar = NSCalendar.currentCalendar()
+        let now = calendar.components([.Hour, .Minute], fromDate: NSDate())
+        for block in todaySchedule {
+            if block.startTime.hour > now.hour &&
+                block.startTime.minute > now.minute {
+                    return block
+            }
+        }
+        return nil
+    }
+    
+    func timeLeftInCurrentClass() -> Int { //in minutes
+        if let currentClass = currentClass() {
+            let calendar = NSCalendar.currentCalendar()
+            let now = calendar.components([.Hour, .Minute], fromDate: NSDate())
+            let hoursLeft = currentClass.endTime.hour - now.hour
+            let minutesLeft = currentClass.endTime.minute - now.minute
+            let timeLeft = hoursLeft * 60 + minutesLeft
+            return timeLeft
+        } else {
+            return 0
+        }
+    }
+    
+    func timeUntilNextClass() -> Int { //in minutes
+        if let nextClass = nextClass() {
+            let calendar = NSCalendar.currentCalendar()
+            let now = calendar.components([.Hour, .Minute], fromDate: NSDate())
+            let hoursLeft = now.hour - nextClass.startTime.hour
+            let minutesLeft = now.minute - nextClass.startTime.minute
+            let timeLeft = hoursLeft * 60 + minutesLeft
+            return timeLeft
+        } else {
+            return 0
+        }
+    }
+    
     private class func makeSchedule(array: NSArray) -> [Block] {
         var schedule = [Block]()
         for object in array {
@@ -56,15 +108,4 @@ class ScheduleManager: NSObject {
         return schedule
     }
     
-    class func currentClass() {
-        
-    }
-    
-    class func nextClass() {
-        
-    }
-    
-    class func today() {
-        
-    }
 }
