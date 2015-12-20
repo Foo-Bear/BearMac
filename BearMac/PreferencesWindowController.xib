@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="BearMac" customModuleProvider="target">
+            <connections>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" unifiedTitleAndToolbar="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="864" y="694" width="480" height="285"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <value key="minSize" type="size" width="480" height="285"/>
+            <value key="maxSize" type="size" width="480" height="285"/>
+            <view key="contentView" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="285"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uBX-Tx-hW3">
+                        <rect key="frame" x="18" y="256" width="112" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Lunch Schedule" id="vtw-u4-DCW">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pX9-rs-B1Z">
+                        <rect key="frame" x="46" y="240" width="57" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Monday" id="r75-di-f6m">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ht5-l7-4wg">
+                        <rect key="frame" x="39" y="165" width="71" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="vaa-3m-Vn0">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="1st" width="32" selected="YES"/>
+                                <segment label="2nd" width="32" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PzQ-b0-alQ">
+                        <rect key="frame" x="39" y="116" width="71" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="uAM-b9-fFs">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="1st" width="32" selected="YES"/>
+                                <segment label="2nd" width="32" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JK2-Yv-VBw">
+                        <rect key="frame" x="35" y="142" width="79" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Wednesday" id="UOi-5j-59H">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Z-h2-rkS">
+                        <rect key="frame" x="39" y="67" width="71" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="cyx-X0-RLM">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="1st" width="32" selected="YES"/>
+                                <segment label="2nd" width="32" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gWP-Vm-yLB">
+                        <rect key="frame" x="42" y="93" width="65" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Thursday" id="zvY-Qt-fs4">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zpA-sN-vZ2">
+                        <rect key="frame" x="39" y="214" width="71" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="dWx-Ve-1ZK">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="1st" width="32" selected="YES"/>
+                                <segment label="2nd" width="32" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
+                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="btn-sx-FEX">
+                        <rect key="frame" x="39" y="18" width="71" height="24"/>
+                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="OSz-Ya-aTU">
+                            <font key="font" metaFont="system"/>
+                            <segments>
+                                <segment label="1st" width="32" selected="YES"/>
+                                <segment label="2nd" width="32" tag="1"/>
+                            </segments>
+                        </segmentedCell>
+                    </segmentedControl>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n5k-t1-Fsn">
+                        <rect key="frame" x="52" y="44" width="46" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Friday" id="6BH-0F-NB1">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0T0-aI-QDB">
+                        <rect key="frame" x="45" y="191" width="59" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tuesday" id="fkj-Fb-p5S">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="btn-sx-FEX" firstAttribute="top" secondItem="n5k-t1-Fsn" secondAttribute="bottom" constant="3" id="3CR-4z-tPj"/>
+                    <constraint firstItem="btn-sx-FEX" firstAttribute="centerX" secondItem="n5k-t1-Fsn" secondAttribute="centerX" id="5gQ-Bl-we7"/>
+                    <constraint firstItem="uBX-Tx-hW3" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="CO7-nk-bdV"/>
+                    <constraint firstItem="n5k-t1-Fsn" firstAttribute="top" secondItem="Y2Z-h2-rkS" secondAttribute="bottom" constant="8" id="Hy9-Ot-Y7u"/>
+                    <constraint firstItem="0T0-aI-QDB" firstAttribute="top" secondItem="zpA-sN-vZ2" secondAttribute="bottom" constant="8" id="J9h-w0-ce8"/>
+                    <constraint firstItem="gWP-Vm-yLB" firstAttribute="centerX" secondItem="PzQ-b0-alQ" secondAttribute="centerX" id="KlK-fv-1On"/>
+                    <constraint firstItem="JK2-Yv-VBw" firstAttribute="top" secondItem="Ht5-l7-4wg" secondAttribute="bottom" constant="8" id="PWX-EW-DgI"/>
+                    <constraint firstItem="0T0-aI-QDB" firstAttribute="centerX" secondItem="zpA-sN-vZ2" secondAttribute="centerX" id="Sav-NC-dxH"/>
+                    <constraint firstItem="n5k-t1-Fsn" firstAttribute="centerX" secondItem="Y2Z-h2-rkS" secondAttribute="centerX" id="TgD-L5-ESI"/>
+                    <constraint firstItem="gWP-Vm-yLB" firstAttribute="top" secondItem="PzQ-b0-alQ" secondAttribute="bottom" constant="8" id="U3Q-XF-Hcy"/>
+                    <constraint firstItem="Y2Z-h2-rkS" firstAttribute="top" secondItem="gWP-Vm-yLB" secondAttribute="bottom" constant="3" id="U3X-B1-RTU"/>
+                    <constraint firstItem="Ht5-l7-4wg" firstAttribute="top" secondItem="0T0-aI-QDB" secondAttribute="bottom" constant="3" id="VTf-Pn-RJZ"/>
+                    <constraint firstItem="uBX-Tx-hW3" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="12" id="XZx-DV-dM4"/>
+                    <constraint firstItem="zpA-sN-vZ2" firstAttribute="centerX" secondItem="pX9-rs-B1Z" secondAttribute="centerX" id="aDZ-FQ-xCu"/>
+                    <constraint firstItem="pX9-rs-B1Z" firstAttribute="top" secondItem="uBX-Tx-hW3" secondAttribute="bottom" constant="-1" id="ec9-Zf-lBT"/>
+                    <constraint firstItem="Y2Z-h2-rkS" firstAttribute="centerX" secondItem="gWP-Vm-yLB" secondAttribute="centerX" id="foD-sO-oar"/>
+                    <constraint firstItem="PzQ-b0-alQ" firstAttribute="centerX" secondItem="JK2-Yv-VBw" secondAttribute="centerX" id="kmn-KD-mBl"/>
+                    <constraint firstItem="pX9-rs-B1Z" firstAttribute="centerX" secondItem="uBX-Tx-hW3" secondAttribute="centerX" id="psh-40-dTO"/>
+                    <constraint firstItem="PzQ-b0-alQ" firstAttribute="top" secondItem="JK2-Yv-VBw" secondAttribute="bottom" constant="3" id="qWi-fe-zNV"/>
+                    <constraint firstItem="zpA-sN-vZ2" firstAttribute="top" secondItem="pX9-rs-B1Z" secondAttribute="bottom" constant="3" id="x3d-8B-LJw"/>
+                    <constraint firstItem="Ht5-l7-4wg" firstAttribute="centerX" secondItem="0T0-aI-QDB" secondAttribute="centerX" id="zpm-ey-Ee9"/>
+                    <constraint firstItem="JK2-Yv-VBw" firstAttribute="centerX" secondItem="Ht5-l7-4wg" secondAttribute="centerX" id="zwP-hS-BDL"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="565" y="455.5"/>
+        </window>
+    </objects>
+</document>

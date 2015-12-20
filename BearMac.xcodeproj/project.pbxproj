@@ -13,6 +13,8 @@
 		AB06DC851C23BBD30050394B /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06DC841C23BBD30050394B /* ScheduleManager.swift */; };
 		AB06DC871C23BC3D0050394B /* fallbackDatabase.json in Resources */ = {isa = PBXBuildFile; fileRef = AB06DC861C23BC3D0050394B /* fallbackDatabase.json */; };
 		AB06DC891C23BFDC0050394B /* DataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06DC881C23BFDC0050394B /* DataObjects.swift */; };
+		ABAC8F3E1C265AC80083E16A /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC8F3C1C265AC80083E16A /* PreferencesWindowController.swift */; };
+		ABAC8F3F1C265AC80083E16A /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABAC8F3D1C265AC80083E16A /* PreferencesWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		AB06DC841C23BBD30050394B /* ScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
 		AB06DC861C23BC3D0050394B /* fallbackDatabase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fallbackDatabase.json; sourceTree = "<group>"; };
 		AB06DC881C23BFDC0050394B /* DataObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObjects.swift; sourceTree = "<group>"; };
+		ABAC8F3C1C265AC80083E16A /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		ABAC8F3D1C265AC80083E16A /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				AB06DC731C23844C0050394B /* AppDelegate.swift */,
 				AB06DC881C23BFDC0050394B /* DataObjects.swift */,
 				AB06DC841C23BBD30050394B /* ScheduleManager.swift */,
+				ABAC8F3C1C265AC80083E16A /* PreferencesWindowController.swift */,
+				ABAC8F3D1C265AC80083E16A /* PreferencesWindowController.xib */,
 				AB06DC751C23844C0050394B /* Assets.xcassets */,
 				AB06DC771C23844C0050394B /* MainMenu.xib */,
 				AB06DC7A1C23844C0050394B /* Info.plist */,
@@ -127,6 +133,7 @@
 			files = (
 				AB06DC761C23844C0050394B /* Assets.xcassets in Resources */,
 				AB06DC871C23BC3D0050394B /* fallbackDatabase.json in Resources */,
+				ABAC8F3F1C265AC80083E16A /* PreferencesWindowController.xib in Resources */,
 				AB06DC791C23844C0050394B /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +147,7 @@
 			files = (
 				AB06DC851C23BBD30050394B /* ScheduleManager.swift in Sources */,
 				AB06DC891C23BFDC0050394B /* DataObjects.swift in Sources */,
+				ABAC8F3E1C265AC80083E16A /* PreferencesWindowController.swift in Sources */,
 				AB06DC741C23844C0050394B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

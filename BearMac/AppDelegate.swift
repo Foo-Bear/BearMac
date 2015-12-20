@@ -14,13 +14,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     let scheduleManager = ScheduleManager()
+    let preferencesController = PreferencesWindowController(windowNibName: "PreferencesWindowController")
     var timer: NSTimer!
     var timeLeft = 0
     
     //Menu
     let menu = NSMenu()
-    let nowItem = NSMenuItem(title: "Now: Block 1", action: nil, keyEquivalent: "")
-    let nextItem = NSMenuItem(title: "Next: Block 2", action: nil, keyEquivalent: "")
+    let nowItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
+    let nextItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -29,6 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         nowItem.enabled = false
         menu.addItem(nextItem)
         nowItem.enabled = false
+        menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(NSMenuItem(title: "Preferences", action: Selector("showPreferences"), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separatorItem())
         menu.addItem(NSMenuItem(title: "Quit \(appName)", action: Selector("terminate:"), keyEquivalent: ""))
         statusItem.menu = menu
@@ -69,6 +72,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             statusItem.title = "\(timeLeftHours):\(timeLeftMinutes)"
         }
+    }
+    
+    func showPreferences() {
+        preferencesController.showWindow(nil)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
