@@ -8,6 +8,8 @@
 
 import Cocoa
 
+let baseURL = NSURL(string: "http://localhost:3000/")
+
 class ScheduleManager: NSObject {
     
     var todaySchedule: [Block] {
@@ -40,8 +42,12 @@ class ScheduleManager: NSObject {
     var fallbackSchedule: [[Block]]
     var downloadedSchedule: [Block]?
     
+    //downloads
+    var downloadCompletionHandler: ((NSData?, NSURLResponse?, NSError?)->Void)!
+    let downloadRequest = NSMutableURLRequest(URL: NSURL(string: "today", relativeToURL: baseURL)!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 60)
     
     override init() {
+        
         let fallbackData: NSData
         if let file = NSBundle.mainBundle().pathForResource("fallbackDatabase", ofType: "json") {
             fallbackData = NSData(contentsOfFile: file)!
@@ -56,8 +62,29 @@ class ScheduleManager: NSObject {
                 fallbackSchedule[index].append(block)
             }
         }
-        
-        
+        super.init()
+        downloadCompletionHandler = { (let data, let response, let error) in
+            let timer: NSTimer
+            if error != nil && data != nil {
+                if let todayArray = try? NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) {
+                    self.downloadedSchedule = ScheduleManager.makeSchedule(todayArray as! NSArray)
+                    timer = NSTimer(timeInterval: 216000, target: self, selector: "redownloadSchedule", userInfo: nil, repeats: false)
+                    NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
+                timer = NSTimer(timeInterval: 180, target: self, selector: "redownloadSchedule", userInfo: nil, repeats: false)
+                NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+            }
+        }
+        self.redownloadSchedule()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "redownloadSchedule", name: NSSystemClockDidChangeNotification, object: nil)
+    }
+    
+    func redownloadSchedule() {
+        let session = NSURLSession.sharedSession()
+        let task: NSURLSessionDataTask = session.dataTaskWithRequest(downloadRequest, completionHandler: downloadCompletionHandler)
+        task.resume()
     }
     
     func currentClass() -> Block? {
