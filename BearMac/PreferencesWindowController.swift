@@ -19,6 +19,7 @@ class PreferencesWindowController: NSWindowController {
     @IBOutlet weak var wedControl: NSSegmentedControl!
     @IBOutlet weak var thuControl: NSSegmentedControl!
     @IBOutlet weak var friControl: NSSegmentedControl!
+    @IBOutlet weak var startOnLoginCheck: NSButton!
     
     var lunchControls: [NSSegmentedControl] {
         get {
@@ -36,7 +37,12 @@ class PreferencesWindowController: NSWindowController {
         for var i = 0; i < lunches.count; i++ {
             lunchControls[i].selectedSegment = lunches[i] - 1
         }
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        if applicationIsInStartUpItems() {
+            startOnLoginCheck.state = 1
+        } else {
+            startOnLoginCheck.state = 0
+        }
+        
     }
     
     @IBAction func lunchChanged(sender: NSSegmentedControl) {
@@ -52,5 +58,9 @@ class PreferencesWindowController: NSWindowController {
     
     @IBAction func okPresssed(sender: AnyObject) {
         close()
+    }
+    
+    @IBAction func startOnLoginPressed(sender: NSButton) {
+        setLaunchAtStartup(Bool(sender.state))
     }
 }

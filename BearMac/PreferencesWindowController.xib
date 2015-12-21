@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="friControl" destination="btn-sx-FEX" id="ZpL-ow-UeN"/>
                 <outlet property="monControl" destination="zpA-sN-vZ2" id="zVV-sY-QXp"/>
+                <outlet property="startOnLoginCheck" destination="RyD-SA-BbX" id="3cz-OO-jux"/>
                 <outlet property="thuControl" destination="Y2Z-h2-rkS" id="0DX-EY-sjG"/>
                 <outlet property="tueControl" destination="Ht5-l7-4wg" id="24v-wL-ROX"/>
                 <outlet property="wedControl" destination="PzQ-b0-alQ" id="vSD-Qt-Fub"/>
@@ -157,6 +158,16 @@ DQ
                             <action selector="lunchChanged:" target="-2" id="1n3-ZK-Q3S"/>
                         </connections>
                     </segmentedControl>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="RyD-SA-BbX">
+                        <rect key="frame" x="185" y="18" width="110" height="18"/>
+                        <buttonCell key="cell" type="check" title="Start On Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="pXP-Z4-PvV">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="startOnLoginPressed:" target="-2" id="h2M-dl-QSX"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="kCc-IV-2c2" secondAttribute="bottom" constant="20" id="1vq-Nh-Wpc"/>
@@ -168,6 +179,7 @@ DQ
                     <constraint firstItem="gWP-Vm-yLB" firstAttribute="centerX" secondItem="PzQ-b0-alQ" secondAttribute="centerX" id="KlK-fv-1On"/>
                     <constraint firstItem="JK2-Yv-VBw" firstAttribute="top" secondItem="Ht5-l7-4wg" secondAttribute="bottom" constant="8" id="PWX-EW-DgI"/>
                     <constraint firstItem="0T0-aI-QDB" firstAttribute="centerX" secondItem="zpA-sN-vZ2" secondAttribute="centerX" id="Sav-NC-dxH"/>
+                    <constraint firstItem="RyD-SA-BbX" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="Sle-GQ-jzN"/>
                     <constraint firstItem="n5k-t1-Fsn" firstAttribute="centerX" secondItem="Y2Z-h2-rkS" secondAttribute="centerX" id="TgD-L5-ESI"/>
                     <constraint firstItem="gWP-Vm-yLB" firstAttribute="top" secondItem="PzQ-b0-alQ" secondAttribute="bottom" constant="8" id="U3Q-XF-Hcy"/>
                     <constraint firstItem="Y2Z-h2-rkS" firstAttribute="top" secondItem="gWP-Vm-yLB" secondAttribute="bottom" constant="3" id="U3X-B1-RTU"/>
@@ -178,6 +190,7 @@ DQ
                     <constraint firstItem="pX9-rs-B1Z" firstAttribute="top" secondItem="uBX-Tx-hW3" secondAttribute="bottom" constant="-1" id="ec9-Zf-lBT"/>
                     <constraint firstItem="Y2Z-h2-rkS" firstAttribute="centerX" secondItem="gWP-Vm-yLB" secondAttribute="centerX" id="foD-sO-oar"/>
                     <constraint firstItem="PzQ-b0-alQ" firstAttribute="centerX" secondItem="JK2-Yv-VBw" secondAttribute="centerX" id="kmn-KD-mBl"/>
+                    <constraint firstAttribute="bottom" secondItem="RyD-SA-BbX" secondAttribute="bottom" constant="20" id="lEg-Zf-Mq6"/>
                     <constraint firstItem="pX9-rs-B1Z" firstAttribute="centerX" secondItem="uBX-Tx-hW3" secondAttribute="centerX" id="psh-40-dTO"/>
                     <constraint firstItem="PzQ-b0-alQ" firstAttribute="top" secondItem="JK2-Yv-VBw" secondAttribute="bottom" constant="3" id="qWi-fe-zNV"/>
                     <constraint firstItem="zpA-sN-vZ2" firstAttribute="top" secondItem="pX9-rs-B1Z" secondAttribute="bottom" constant="3" id="x3d-8B-LJw"/>
